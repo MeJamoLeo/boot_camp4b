@@ -6,20 +6,17 @@ using namespace std;
 int main() {
     int N, K, Q;
     cin >> N >> K >> Q;
-    map<int, int> mp;
+    int ppl[N];
 
-    for (int i = 0; i < N; i++) mp[i] = K;
+    for (int i = 0; i < N; i++) ppl[i] = K-Q;
 
     for (int i = 0; i < Q; i++) {
 	int A;
 	cin >> A;
-	for (int i = 0; i < (int)mp.size(); i++) {
-	    if (A != i+1)
-		mp[i]--;
-	}
+	ppl[A-1]++;
     }
     for (int i = 0; i < N; i++) {
-	if (mp[i] <= 0) cout << "No" << endl;
+	if (ppl[i] <= 0) cout << "No" << endl;
 	else cout << "Yes" << endl;
     }
     return 0;
